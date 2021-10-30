@@ -2,8 +2,8 @@
 This repository contains all  the modules and test benches related to our work on implementation of RISC V processor.
 
 The following five files together make our fetch unit branch condition has not been added yet in the logic
-          1.PC_reg
-          2.NPC_reg
-          3.instruction_memory
-          4.IF_ID stage
+          1.PC_reg_synchronous.v
+          2.NPC_REG.v
+          3.instruction_memory.v
+          4.IF_ID_stage.v
           
