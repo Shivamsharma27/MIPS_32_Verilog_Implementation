@@ -7,3 +7,4 @@ The following five files together make our fetch unit branch condition has not b
           3.instruction_memory.v
           4.IF_ID_stage.v
           
+Currently only IF stage and deceoding stage has been implemented and that too without branch instruction..so currently modifying these codes to accomodate all the instructions.
