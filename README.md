@@ -1,9 +1,12 @@
 # MIPS_32_Verilog_Implementation
+
 This repository contains all  the modules and test benches related to our work on implementation of RISC V based RV32I processor.
 
 
-1.INSTRUCTION FETCH STAGE:- The following five files together make our fetch unit.  
-          1.PC_reg_synchronous.v     
+1.INSTRUCTION FETCH STAGE:- The following five files together make our fetch unit.
+
+          1.PC_reg_synchronous.v 
+          
           //Transfer the NPC addr to the memory as soon as the clock arrives.
           
           2.NPC_REG.v
