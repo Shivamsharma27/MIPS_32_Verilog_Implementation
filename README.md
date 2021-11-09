@@ -2,6 +2,8 @@
 
 This repository contains all  the modules and test benches related to our work on implementation of RISC V based RV32I processor.
 
+NOTE:-All the steps to run the code on VIVADO are given in the end.
+
 
 1.INSTRUCTION FETCH STAGE:- The following five files together make our fetch unit.
 
@@ -187,7 +189,7 @@ Step 2:- Add these 3 files in the simulation sources.
           
           b.memory_cont.mem
           
-          //All the binary for the instructions is writtten in this simulation source file and it geets loaded in the instruction memory upon execution.
+          //All the binary for the instructions is writtten in this simulation source file and it gets loaded in the instruction memory upon execution.
                 
            c.register_bank_load.mem
            
@@ -204,4 +206,4 @@ Step 2:- Add these 3 files in the simulation sources.
           
           
           
-This is simple 5 stage pipeline implementation of RV32I and no forwarding and bypassing logic has been implemented yet.
+This is a simple 5 stage pipeline implementation of RV32I and no forwarding and bypassing logic has been implemented yet.
