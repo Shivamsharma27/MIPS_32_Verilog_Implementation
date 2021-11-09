@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 10/26/2021 10:22:13 PM
+// Create Date: 11/02/2021 08:05:46 AM
 // Design Name: 
-// Module Name: instruction_reg
+// Module Name: IF_ID_stage_NPC_out_reg
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,16 +20,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module instruction_reg(input [7:0]memory_data,output reg [31:0]instruction_reg_out);
-reg [31:0]temp_reg;
-/*initial
+module IF_ID_stage_addr(input [11:0]addr_mux_out,input clock,output reg [11:0]addr_to_next_stage);
+
+always@(posedge clock)
 begin
-instruction_reg_out=32'dz;
-end*/
-always @(*)
-begin
-temp_reg=instruction_reg_out>>8;
-instruction_reg_out[31:0]={memory_data[7:0],temp_reg[23:0]};
-#1.1temp_reg=32'hzzzzzzzz;
+addr_to_next_stage=addr_mux_out;
 end
 endmodule
+
+

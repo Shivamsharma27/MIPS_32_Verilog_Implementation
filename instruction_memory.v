@@ -21,19 +21,25 @@
 
 
 module instruction_memory(
-input [9:0]addr,
+input [11:0]addr,
 input wr,
-input [7:0]data_in,
-output [7:0]data_out);
-reg [7:0]mem[1023:0];reg [7:0]data_out_reg;
-integer k;
+input [31:0]data_in,
+output [31:0]data_out);
+
+reg [7:0]mem[4095:0]; //memory 4KB
+
+reg [7:0]data_out_reg1;
+reg [7:0]data_out_reg2;
+reg [7:0]data_out_reg3;
+reg [7:0]data_out_reg4;
+//integer k;
 //tri [7:0]bus;
-assign data_out=(~wr)?data_out_reg:8'hzz;
+assign data_out=(~wr)?{data_out_reg1,data_out_reg2,data_out_reg3,data_out_reg4}:32'hzzzzzzzz;
 initial
 begin
 $readmemb("memory_cont.mem",mem);
 end
-always@(*)
+always@(addr)
 begin
 if (wr==1)
 begin
@@ -41,10 +47,14 @@ mem[addr]=data_in;
 end
 else if (wr==0)
 begin
-for(k=0;k<=3;k=k+1)
+/*for(k=0;k<=3;k=k+1)
 begin
 #1data_out_reg=mem[addr+k];
-end
+end*/
+data_out_reg1=mem[addr];
+data_out_reg2=mem[addr+1];
+data_out_reg3=mem[addr+2];
+data_out_reg4=mem[addr+3];
 end
 end
 endmodule

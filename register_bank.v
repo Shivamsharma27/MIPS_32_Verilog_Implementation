@@ -28,6 +28,7 @@ input [4:0]destination_register,output [31:0]source1_data,output [31:0]source2_d
 reg [31:0] reg_file[31:0];
 assign source1_data=reg_file[source_1];
 assign source2_data=reg_file[source_2];
+
 initial
 begin
 $readmemb("register_bank_load.mem",reg_file);

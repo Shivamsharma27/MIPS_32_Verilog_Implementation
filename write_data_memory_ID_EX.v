@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 10/26/2021 10:22:13 PM
+// Create Date: 11/06/2021 06:45:23 PM
 // Design Name: 
-// Module Name: instruction_reg
+// Module Name: write_data_memory_ID_EX
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,16 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module instruction_reg(input [7:0]memory_data,output reg [31:0]instruction_reg_out);
-reg [31:0]temp_reg;
-/*initial
-begin
-instruction_reg_out=32'dz;
-end*/
-always @(*)
-begin
-temp_reg=instruction_reg_out>>8;
-instruction_reg_out[31:0]={memory_data[7:0],temp_reg[23:0]};
-#1.1temp_reg=32'hzzzzzzzz;
-end
+module write_data_memory_ID_EX(input signal_write_data_memory,input clock,output reg out_write_data_memory);
+
+always@(posedge clock)
+out_write_data_memory=signal_write_data_memory;
 endmodule
+
+

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 10/26/2021 10:22:13 PM
+// Create Date: 10/31/2021 09:07:27 AM
 // Design Name: 
-// Module Name: instruction_reg
+// Module Name: addr_mux
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,16 +20,14 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module instruction_reg(input [7:0]memory_data,output reg [31:0]instruction_reg_out);
-reg [31:0]temp_reg;
-/*initial
-begin
-instruction_reg_out=32'dz;
-end*/
+module addr_mux(input [11:0]NPC_addr,input [11:0]Branch_addr, output reg[11:0]addr_to_PC,input select_addr_mux);
 always @(*)
 begin
-temp_reg=instruction_reg_out>>8;
-instruction_reg_out[31:0]={memory_data[7:0],temp_reg[23:0]};
-#1.1temp_reg=32'hzzzzzzzz;
+if (select_addr_mux==1)
+begin
+addr_to_PC[11:0]=Branch_addr[11:0];
+end
+else 
+addr_to_PC[11:0]=NPC_addr[11:0];
 end
 endmodule

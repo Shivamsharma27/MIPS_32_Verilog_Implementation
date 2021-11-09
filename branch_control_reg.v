@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 10/26/2021 10:22:13 PM
+// Create Date: 11/03/2021 01:13:15 PM
 // Design Name: 
-// Module Name: instruction_reg
+// Module Name: branch_control_reg
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,16 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module instruction_reg(input [7:0]memory_data,output reg [31:0]instruction_reg_out);
-reg [31:0]temp_reg;
-/*initial
-begin
-instruction_reg_out=32'dz;
-end*/
-always @(*)
-begin
-temp_reg=instruction_reg_out>>8;
-instruction_reg_out[31:0]={memory_data[7:0],temp_reg[23:0]};
-#1.1temp_reg=32'hzzzzzzzz;
-end
+module branch_control_reg(input branch_control_reg_in,input clock,
+output reg branch_control_reg_out);
+always@(posedge clock)
+branch_control_reg_out=branch_control_reg_in;
 endmodule
