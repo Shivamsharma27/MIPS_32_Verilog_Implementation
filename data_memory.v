@@ -35,7 +35,7 @@ reg [7:0]data_out_regm4;
 assign data_out=(r)?{data_out_regm1,data_out_regm2,data_out_regm3,data_out_regm4}:32'hzzzzzzzz;
 
 always@(*)
-begin
+begin          //delay added so that wr and r get settled and no false value get calculated.
 #1if ((wr==1)&&(r==0))
 begin
 //mem_data[addr]=data_in;
