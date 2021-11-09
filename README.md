@@ -197,7 +197,7 @@ Step 2:- Add these 3 files in the simulation sources.
           
           NOTE:-These .mem files automatically load data in the registers and memory with the help of $readmemb("memory_cont.mem",mem); and $readmemb("register_bank_load.mem",reg_bank); commands usend in the respective memory and registers module.
                    
- Step 3:- Make insruction_memory_tb.v as the top module.
+ Step 3:- Make 'instruction_memory_tb.v' as the top module.
  
  Step 4:- Run the simulation.
           
