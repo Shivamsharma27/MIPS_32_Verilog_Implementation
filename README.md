@@ -73,7 +73,7 @@ This repository contains all  the modules and test benches related to our work o
                       m.read_data_memory_ID_EX_stage.v
                       n.write_destination_reg_ID_EX_stage.v
                       
-3. EXECUTION_UNIT:- This unit take data and control signals from the previous stage and performs operations accordingly.Follwing arer the files used to implement the funcioning for this stage.
+3. EXECUTION_UNIT:- This unit take data and control signals from the previous stage and performs operations accordingly.Following are the files used to implement the funcioning for this stage.
           
           1.mux_A
           2.mux_B.v
@@ -101,7 +101,7 @@ This repository contains all  the modules and test benches related to our work o
                     
 5.WriteBack Stage:-
 
-     In this stage all the control signal that are transferred from the mem stage are routed towards      the register bank to perform write opeation on the register.
+     In this stage all the control signal that are transferred from the mem stage are routed towards the register bank to perform write opeation on the register.
 
             
                     
@@ -115,4 +115,4 @@ This repository contains all  the modules and test benches related to our work o
           
           
           
-Currently only IF stage and deceoding stage has been implemented and that too without branch instruction..so currently modifying these codes to accomodate all the instructions.
+This is simple 5 stage pipeline implementation of RV32I and no forwarding and bypassing logic has been implemented yet.
