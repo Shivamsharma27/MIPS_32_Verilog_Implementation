@@ -106,6 +106,8 @@ This repository contains all  the modules and test benches related to our work o
             
 
 
+
+
 Steps to run the files on VIVADO:-
 
 Step 1:- Ensure that the following files have been added to the design sources.The list is given below:-
@@ -126,7 +128,7 @@ Step 1:- Ensure that the following files have been added to the design sources.T
 
           8. M_WB_stage_data.v
 
-          9.NPC_REG.v
+          9. NPC_REG.v
 
           10.add_control_ID_EX_stage.v
 
@@ -148,37 +150,33 @@ Step 1:- Ensure that the following files have been added to the design sources.T
 
           19.lw_control_ID_EX_stage.v
 
-          20.memory_cont.mem
+          20.mux_A.v
 
-          21.mux_A.v
+          21.mux_B.v
 
-          22.mux_B.v
+          22.mux_line_ID_EX.v
 
-          23.mux_line_ID_EX.v
+          23.or_control_ID_EX_stage.v
 
-          24.or_control_ID_EX_stage.v
+          24.pc_reg_synchronous.v
 
-          25.pc_reg_synchronous.v
+          25.read_data_memory_ID_EX_stage.v
 
-          26.read_data_memory_ID_EX_stage.v
+          26.register_bank.v
 
-          27.register_bank.v
+          27.sign_extend_12bit_32bit.v
 
-          28.register_bank_load.mem
+          28.sll_control_ID_EX_stage.v
 
-          29.sign_extend_12bit_32bit.v
+          29.sra_control_ID_EX_stage.v
 
-          30.sll_control_ID_EX_stage.v
+          30.sub_control_ID_EX_stage.v
 
-          31.sra_control_ID_EX_stage.v
+          31.sw_control_ID_EX_stage.v
 
-          32.sub_control_ID_EX_stage.v
+          32.write_data_memory_ID_EX.v
 
-          33.sw_control_ID_EX_stage.v
-
-          34.write_data_memory_ID_EX.v
-
-          35.write_destination_reg_ID_EX_stage.v
+          33.write_destination_reg_ID_EX_stage.v
 
 
 Step 2:- Add these 3 files in the simulation sources.
