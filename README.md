@@ -31,14 +31,33 @@ This repository contains all  the modules and test benches related to our work o
           
      
 2. INSTRUCTION DECODE STAGE:- Decode stage is comprised of the following submodules-
-          1.register_bank.v                           //32 bit register file containing 32 registers.
-          2.ID_EX_B_32.v                             /*This reg module reused again  to transfer 32 bit data to the next stage on the arrival of the clock pulse.
-                                                     (used for rs1 data ,rs2 data and mmediate 32 bit data)*/
-          3.sign_extend_12bit_32bit.v             //Sign Extend the data offset based on the instruction type i.e branch,sw or addi.
-          4.destination_reg_address.v            //Reg file to transfer the address of the destination register for the writeback stage on the arrival of the clock pulse.
-          5.IF_ID_stage_addr.v                  //Reused module for reg file to transfer the address to the next stages for the possibilty of branch. 
-          6. Controller_Unit.v             //Generates instructions and send the instructions to the  register modules so that clock pulse can trigger them to the next stage.
+
+          1.register_bank.v 
+          
+               //32 bit register file containing 32 registers.
+               
+          3.ID_EX_B_32.v 
+                                     
+               /*This reg module reused again  to transfer 32 bit data to the next stage on the arrival of the clock pulse.                                                                      (used for rs1 data ,rs2 data and mmediate 32 bit data)*/
+               
+          3.sign_extend_12bit_32bit.v
+          
+              //Sign Extend the data offset based on the instruction type i.e branch,sw or addi.
+              
+          5.destination_reg_address.v  
+                    
+             //Reg file to transfer the address of the destination register for the writeback stage on the arrival of the clock pulse.
+             
+          7.IF_ID_stage_addr.v  
+                         
+             //Reused module for reg file to transfer the address to the next stages for the possibilty of branch. 
+             
+          9. Controller_Unit.v  
+                    
+            //Generates instructions and send the instructions to the  register modules so that clock pulse can trigger them to the next stage.
+            
           Modules to transfer controls from controller_Unit to the Execution stage
+          
                       a.mux_line_ID_EX.v
                       b.branch_control_reg.v
                       c.addi_control_ID_EX_stage.v
