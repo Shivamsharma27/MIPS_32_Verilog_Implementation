@@ -1,6 +1,6 @@
 # MIPS_32_Verilog_Implementation
 
-This repository contains all  the modules and test benches related to our work on implementation of RISC V based RV32I processor.
+This repository contains all  the modules and test benches related to our work on implementation of RISC V based RV32I microprocessor microarchitecture.
 
 NOTE:-All the steps to run the code on VIVADO are given in the end.
 
