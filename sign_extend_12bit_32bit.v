@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module sign_extend_12bit_32bit(input [31:0]immediate_data,output [31:0]sign_extended_data,input beq_signal);
+module sign_extend_12bit_32bit(input [31:0]immediate_data,output [31:0]sign_extended_data,input beq_signal, input sw_D_signal);
 reg [31:0] data_reg;
 always@(*)
 begin
@@ -28,10 +28,17 @@ if(beq_signal==1)
 begin
 data_reg={{21{immediate_data[31]}},immediate_data[7],immediate_data[30:25],immediate_data[11:8]};
 end
-else
+else if (sw_D_signal==1)
+begin
+
+data_reg={{20{immediate_data[31]}},immediate_data[31:25],immediate_data[11:7]};
+end
+
+else 
 begin
 data_reg={{20{immediate_data[31]}},immediate_data[31:20]};
 end
+
 end
 
 assign sign_extended_data[31:0]=data_reg[31:0];

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 10/26/2021 10:22:13 PM
+// Create Date: 10/30/2021 10:35:39 PM
 // Design Name: 
-// Module Name: instruction_reg
+// Module Name: mux_A
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,16 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module instruction_reg(input [7:0]memory_data,output reg [31:0]instruction_reg_out);
-reg [31:0]temp_reg;
-/*initial
-begin
-instruction_reg_out=32'dz;
-end*/
+module mux_A(input [31:0]A1, input[11:0] A2,input [1:0]mux_lines,output [31:0]A_data);
+reg [31:0]data_reg;
 always @(*)
 begin
-temp_reg=instruction_reg_out>>8;
-instruction_reg_out[31:0]={memory_data[7:0],temp_reg[23:0]};
-#1.1temp_reg=32'hzzzzzzzz;
+if (mux_lines[0]==0)
+begin
+data_reg=A1;
 end
+else if (mux_lines[0]==1)
+begin
+data_reg={{20{A2[11]}},A2};   //bcz incoming address is 12 bit
+end
+end
+assign A_data=data_reg;
 endmodule

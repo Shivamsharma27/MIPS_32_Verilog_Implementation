@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 10/26/2021 10:22:13 PM
+// Create Date: 11/06/2021 09:14:05 PM
 // Design Name: 
-// Module Name: instruction_reg
+// Module Name: MUX_mem_stage
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,16 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module instruction_reg(input [7:0]memory_data,output reg [31:0]instruction_reg_out);
-reg [31:0]temp_reg;
-/*initial
-begin
-instruction_reg_out=32'dz;
-end*/
+module MUX_mem_stage(input [31:0]A_mem_1, input[31:0] A_mem_2,input mux_mem_line,output [31:0]A_mem_data);
+reg [31:0]data_reg_mem;
 always @(*)
 begin
-temp_reg=instruction_reg_out>>8;
-instruction_reg_out[31:0]={memory_data[7:0],temp_reg[23:0]};
-#1.1temp_reg=32'hzzzzzzzz;
+if (mux_mem_line==0)
+begin
+data_reg_mem=A_mem_1;
 end
+else if (mux_mem_line==1)
+begin
+data_reg_mem=A_mem_2;
+end
+end
+assign A_mem_data=data_reg_mem;
 endmodule

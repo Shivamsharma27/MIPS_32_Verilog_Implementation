@@ -20,16 +20,16 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module NPC_REG(input [9:0]PC_reg_out,
-output [9:0]NPC_reg_out);
-reg[9:0] main_reg_NPC;
+module NPC_REG(input [11:0]PC_reg_out,
+output [11:0]NPC_reg_out);
+reg[11:0] main_reg_NPC;
 initial 
 begin
-main_reg_NPC=10'd0;
+main_reg_NPC=12'd0;
 end
 always@(PC_reg_out)
 begin
-main_reg_NPC=PC_reg_out +10'd4;
+main_reg_NPC=PC_reg_out +12'd4;
 end
 assign NPC_reg_out=main_reg_NPC;
 

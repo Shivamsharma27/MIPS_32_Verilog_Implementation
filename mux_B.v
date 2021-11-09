@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 10/26/2021 10:22:13 PM
+// Create Date: 10/30/2021 10:36:17 PM
 // Design Name: 
-// Module Name: instruction_reg
+// Module Name: mux_B
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -19,17 +19,18 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
-module instruction_reg(input [7:0]memory_data,output reg [31:0]instruction_reg_out);
-reg [31:0]temp_reg;
-/*initial
-begin
-instruction_reg_out=32'dz;
-end*/
+module mux_B(input [31:0]B1, input[31:0] B2,input [1:0]mux_lines,output [31:0]B_data);
+reg [31:0]data_reg;
 always @(*)
 begin
-temp_reg=instruction_reg_out>>8;
-instruction_reg_out[31:0]={memory_data[7:0],temp_reg[23:0]};
-#1.1temp_reg=32'hzzzzzzzz;
+if (mux_lines[1]==0)
+begin
+data_reg=B1;
 end
+else if (mux_lines[1]==1)
+begin
+data_reg=B2;
+end
+end
+assign B_data=data_reg;
 endmodule

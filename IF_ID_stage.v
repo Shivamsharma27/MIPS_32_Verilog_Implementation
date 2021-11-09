@@ -1,4 +1,4 @@
-`timescale 1ns / 1ns
+`timescale 1ps / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -24,7 +24,7 @@ module IF_ID_stage(input [31:0]instruction_reg_out,input clock,output [31:0]full
 reg [31:0]mid_reg;
 always@(posedge clock)
 begin
-mid_reg={instruction_reg_out[7:0],instruction_reg_out[15:8],instruction_reg_out[23:16],instruction_reg_out[31:24]};
+mid_reg=instruction_reg_out;
 end
 assign full_instruction=mid_reg;
 

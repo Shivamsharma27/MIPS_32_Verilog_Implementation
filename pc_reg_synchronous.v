@@ -20,14 +20,14 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module PC_reg_synchronous(input [9:0]NPC_reg_out,
+module PC_reg_synchronous(input [11:0]addr_mux_reg_out,
 input clock,
-output [9:0]PC_reg_out
+output [11:0]PC_reg_out
  );
- reg [9:0]main_reg;
+ reg [11:0]main_reg;
  always@(posedge clock)
  begin
- main_reg=NPC_reg_out;
+ main_reg=addr_mux_reg_out;
  end
  assign PC_reg_out=main_reg;
 endmodule

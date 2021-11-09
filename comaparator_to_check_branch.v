@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 10/26/2021 10:22:13 PM
+// Create Date: 11/02/2021 07:06:41 AM
 // Design Name: 
-// Module Name: instruction_reg
+// Module Name: comaparator_to_check_branch
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,16 +20,26 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module instruction_reg(input [7:0]memory_data,output reg [31:0]instruction_reg_out);
-reg [31:0]temp_reg;
-/*initial
+module comaparator_to_check_branch(input [31:0]first_input,input[31:0]second_input,input check_for_branch,output reg branch_decision);
+reg [31:0]equality_check;
+always@(*)
 begin
-instruction_reg_out=32'dz;
-end*/
-always @(*)
+equality_check=first_input-second_input;
+if(check_for_branch==1)
 begin
-temp_reg=instruction_reg_out>>8;
-instruction_reg_out[31:0]={memory_data[7:0],temp_reg[23:0]};
-#1.1temp_reg=32'hzzzzzzzz;
+if (equality_check==0)
+begin
+
+branch_decision=1;
+
+end
+end
+
+else
+
+begin
+branch_decision=0;
+end
+
 end
 endmodule
