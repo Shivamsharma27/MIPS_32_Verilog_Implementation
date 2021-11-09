@@ -104,11 +104,32 @@ This repository contains all  the modules and test benches related to our work o
      In this stage all the control signal that are transferred from the mem stage are routed towards the register bank to perform write opeation on the register.
 
             
-                    
-                  
+
+
+Steps to run the files on VIVADO:-
+
+Step 1:- Ensure that the following files have been added to the design sources.The list is given below:-
+
+
+Step 2:- Add these 3 files in the simulation sources.
           
+          a.instruction_memory_tb.v
+          
+          //This is the testbench  file and all the modules are included and instantiated in this files.
+          
+          b.memory_cont.mem
+          
+          //All the binary for the instructions is writtten in this simulation source file and it geets loaded in the instruction memory upon execution.
+                
+           c.register_bank_load.mem
+           
+           //you can write your data to be stored initially in your registers.
+          
+          NOTE:-These .mem files automatically load data in the registers and memory with the help of $readmemb("memory_cont.mem",mem); and $readmemb("register_bank_load.mem",reg_bank); commands usend in the respective memory and registers module.
                    
-        
+ Step 3:- Make insruction_memory_tb.v as the top module.
+ 
+ Step 4:- Run the simulation.
           
           
                     
