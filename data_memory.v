@@ -36,7 +36,7 @@ assign data_out=(r)?{data_out_regm1,data_out_regm2,data_out_regm3,data_out_regm4
 
 always@(*)
 begin
-if ((wr==1)&&(r==0))
+#1if ((wr==1)&&(r==0))
 begin
 //mem_data[addr]=data_in;
 mem_data[addr]=data_in[31:24];   //FIFO to store 8 bits at eeach successive location in FIFO format
