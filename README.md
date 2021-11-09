@@ -110,6 +110,76 @@ Steps to run the files on VIVADO:-
 
 Step 1:- Ensure that the following files have been added to the design sources.The list is given below:-
 
+          1.ALU.v
+
+          2.ALU_OUT_EX_MEM.v
+
+          3.Controller_Unit.v
+
+          4.ID_EX_B_32.v
+
+          5.IF_ID_stage.v
+
+          6.IF_ID_stage_NPC_out_reg.v
+
+          7. MUX_mem_stage.v
+
+          8. M_WB_stage_data.v
+
+          9.NPC_REG.v
+
+          10.add_control_ID_EX_stage.v
+
+          11.addi_control_ID_EX_stage.v
+
+          12.addr_mux.v
+
+          13.and_control_ID_EX_stage.v
+
+          14.branch_control_reg.v
+
+          15.comaparator_to_check_branch.v
+
+          16.data_memory.v
+
+          17.destination_reg_address.v
+
+          18.instruction_memory.v
+
+          19.lw_control_ID_EX_stage.v
+
+          20.memory_cont.mem
+
+          21.mux_A.v
+
+          22.mux_B.v
+
+          23.mux_line_ID_EX.v
+
+          24.or_control_ID_EX_stage.v
+
+          25.pc_reg_synchronous.v
+
+          26.read_data_memory_ID_EX_stage.v
+
+          27.register_bank.v
+
+          28.register_bank_load.mem
+
+          29.sign_extend_12bit_32bit.v
+
+          30.sll_control_ID_EX_stage.v
+
+          31.sra_control_ID_EX_stage.v
+
+          32.sub_control_ID_EX_stage.v
+
+          33.sw_control_ID_EX_stage.v
+
+          34.write_data_memory_ID_EX.v
+
+          35.write_destination_reg_ID_EX_stage.v
+
 
 Step 2:- Add these 3 files in the simulation sources.
           
