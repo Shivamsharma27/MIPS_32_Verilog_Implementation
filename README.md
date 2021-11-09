@@ -73,7 +73,35 @@ This repository contains all  the modules and test benches related to our work o
                       m.read_data_memory_ID_EX_stage.v
                       n.write_destination_reg_ID_EX_stage.v
                       
-EXECUTION_UNIT:-
+3. EXECUTION_UNIT:- This unit take data and control signals from the previous stage and performs operations accordingly.Follwing arer the files used to implement the funcioning for this stage.
+          
+          1.mux_A
+          2.mux_B.v
+          3.ALU.v
+          4.destination_reg_address.v
+          5.comaparator_to_check_branch.v
+          
+          Modules to transfer control form Execution stage to Memory Stage
+                   
+                   a.ALU_OUT_EX_MEM.v
+                   b.read_data_memory_ID_EX_stage.v
+                   c.write_destination_reg_ID_EX_stage.v
+                   
+          
+4.Memory Stage:-
+          
+          1.data_memory.v
+          2.lw_control_ID_EX_stage.v
+          3.MUX_mem_stage.v
+          
+          Modules to transfer control form Memory Stage to writeback stage
+                    a.write_destination_reg_ID_EX_stage.v
+                    b.destination_reg_address.v
+                    c.M_WB_stage_data.v
+                    
+5.WriteBack Stage:-
+
+     In this stage all the control signal that are transferred from the mem stage are routed towards      the register bank to perform write opeation on the register.
 
             
                     
