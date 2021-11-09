@@ -3,12 +3,29 @@ This repository contains all  the modules and test benches related to our work o
 
 
 1.INSTRUCTION FETCH STAGE:- The following five files together make our fetch unit.  
-          1.PC_reg_synchronous.v     //Transfer the NPC addr to the memory as soon as the clock arrives.
-          2.NPC_REG.v               //PC+4 unit is included in this module itself.
-          3.instruction_memory.v   //4KB memory with 1BYTE word length.
-          4.addr_mux.v            //Introduces the Capability to select address for the branch instruction.
-          5.IF_ID_stage.v        // reg files to transfer full fetched 32 bit instruction to the decoding stage.
-          6.IF_ID_stage_addr.v  //reg file to transfer the address to the next stages for the possibilty of branch. 
+          1.PC_reg_synchronous.v     
+          //Transfer the NPC addr to the memory as soon as the clock arrives.
+          
+          2.NPC_REG.v
+          
+          //PC+4 unit is included in this module itself.
+          
+          3.instruction_memory.v 
+          
+          //4KB memory with 1BYTE word length.
+          
+          4.addr_mux.v  
+          
+          //Introduces the Capability to select address for the branch instruction.
+          
+          5.IF_ID_stage.v
+          
+          // reg files to transfer full fetched 32 bit instruction to the decoding stage.
+          
+          6.IF_ID_stage_addr.v
+          
+          //reg file to transfer the address to the next stages for the possibilty of branch.
+          
      
 2. INSTRUCTION DECODE STAGE:- Decode stage is comprised of the following submodules-
           1.register_bank.v                           //32 bit register file containing 32 registers.
