@@ -38,7 +38,7 @@ This repository contains all  the modules and test benches related to our work o
                
           3.ID_EX_B_32.v 
                                      
-               /*This reg module reused again  to transfer 32 bit data to the next stage on the arrival of the clock pulse.                                                  (used for rs1 data ,rs2 data and mmediate 32 bit data)*/
+               /*This reg module reused again  to transfer 32 bit data to the next stage on the arrival of the clock pulse.(used for rs1 data ,rs2 data and mmediate 32 bit data)*/
                
           3.sign_extend_12bit_32bit.v
           
