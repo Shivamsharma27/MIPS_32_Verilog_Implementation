@@ -95,7 +95,7 @@ NPC_REG npc_inst(.PC_reg_out(x),.NPC_reg_out(y));// y is the output of NPC
 
 //z is output addr of mux
 //and it will be input to pc
-IF_ID_stage_addr inst_for_decode(.addr_mux_out(x),.clock(clock),.addr_to_next_stage(P));
+  IF_ID_stage_addr inst_for_decode(.addr_mux_out(z),.clock(clock),.addr_to_next_stage(P));
 
 instruction_memory ins11(.addr(x),.data_in(data_in),.data_out(data_out),.wr(wr));
 //instruction_reg instr_inst(.memory_data(data_out),.instruction_reg_out(main_IR_out));
