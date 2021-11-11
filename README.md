@@ -190,7 +190,7 @@ Step 2:- Add these 3 files in the simulation sources.
           b.memory_cont.mem
           
           //All the binary for the instructions is writtten in this simulation source file and it gets loaded in the instruction memory upon execution.
-                
+           //If you want to load your own binary then also load the binary in these files.    
            c.register_bank_load.mem
            
            //you can write your data to be stored initially in your registers.
