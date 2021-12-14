@@ -32,7 +32,8 @@ output reg branch_control,
 output reg read_data_memory,          //two signals added for  read and write
 output reg write_data_memory, 
 output reg write_destination_reg,        // these two will work for load and store.
-output reg [1:0]mux_control_signal);
+output reg [1:0]mux_control_signal,
+output reg mac_control);
 wire [6:0]func_7;
 wire [2:0]func_3;
 parameter I_type=7'b0010011; //core instruction format 
@@ -40,7 +41,7 @@ parameter B_type=7'b1100011;
 parameter S_type=7'b0100011;
 parameter L_type=7'b0000011;  //although load is encoded in I format but to generate control signal i have used it here as separately bcz opcode is different even if encodiing is same.
 parameter R_type=7'b0110011;
-
+parameter MAC_type=7'b1111111;
 // above parameter will help to select data that has to be sent to ALU by sending suitable signals to the muxes.
 //These parameters are encoded in final_value[6:0].
 //mux A has A on zero and NPC on 1
@@ -67,6 +68,7 @@ add_control=0;
 sra_control=0;
 addi_control=0;
 sw_control=0;
+mac_control=0;
 branch_control=0;
 lw_control=0;
 read_data_memory=0;          //two signals added for  read and write
@@ -79,6 +81,7 @@ and_control=0;
 sll_control=0;
 add_control=0;
 sra_control=0;
+mac_control=0;
 addi_control=0;
 sw_control=0;
 branch_control=0;
@@ -91,6 +94,7 @@ begin
 or_control=0;
 and_control=0;
 sll_control=1;
+mac_control=0;
 add_control=0;
 sra_control=0;
 lw_control=0;
@@ -110,6 +114,7 @@ lw_control=0;
 sra_control=0;
 addi_control=0;
 sw_control=0;
+mac_control=0;
 branch_control=0;
 read_data_memory=0;          //two signals added for  read and write
 write_data_memory=0;
@@ -130,6 +135,7 @@ sra_control=0;
 lw_control=0;
 sw_control=0;
 addi_control=0;
+mac_control=0;
 branch_control=0;
 read_data_memory=0;          //two signals added for  read and write
 write_data_memory=0;
@@ -147,6 +153,7 @@ sw_control=0;
 branch_control=0;
 read_data_memory=0;          //two signals added for  read and write
 write_data_memory=0;
+mac_control=0;
 end
 endcase
 end
@@ -170,6 +177,7 @@ sw_control=0;
 sll_control=0;
 add_control=0;
 sra_control=0;
+mac_control=0;
 branch_control=0;
 end
 endcase
@@ -190,6 +198,7 @@ lw_control=0;
 addi_control=0;
 sw_control=1; //add reg to transfer to send data to next stage
 branch_control=0;
+mac_control=0;
 write_destination_reg=0;
 end
 
@@ -208,7 +217,8 @@ lw_control=1;
 addi_control=0;
 sw_control=0; //add reg to transfer to send data to next stage
 branch_control=0;
-write_destination_reg=1;        
+write_destination_reg=1;   
+mac_control=0;     
 end
 
 B_type:
@@ -227,6 +237,35 @@ addi_control=0;
 sub_control=0;
 branch_control=1;
 write_destination_reg=0;
+mac_control=0;
+end
+MAC_type:
+begin
+case(func_7)
+0000000:
+begin
+case (func_3)
+000:
+begin
+read_data_memory=0;          
+write_data_memory=0;
+mux_control_signal=2'b00;
+or_control=0;
+and_control=0;
+lw_control=0;
+sll_control=0;
+add_control=0;
+sra_control=0;
+sw_control=0;
+addi_control=0;
+sub_control=0;
+branch_control=0;
+write_destination_reg=1;
+mac_control=1;
+end
+endcase
+end
+endcase
 end
 default write_data_memory=0;       
 endcase
