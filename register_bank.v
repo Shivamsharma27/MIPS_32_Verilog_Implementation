@@ -22,13 +22,15 @@
 
 module register_bank(input [4:0]source_1,
 input [4:0]source_2,
+input [4:0]destination_mac,
 input write,
 input [31:0]wr_data,
-input [4:0]destination_register,output [31:0]source1_data,output [31:0]source2_data);
+input mac_control,
+input [4:0]destination_register,output [31:0]source1_data,output [31:0]source2_data,output [31:0]destination_reg_data);
 reg [31:0] reg_file[31:0];
 assign source1_data=reg_file[source_1];
 assign source2_data=reg_file[source_2];
-
+assign destination_reg_data=mac_control?reg_file[destination_mac]:32'hzzzzzzzz;
 initial
 begin
 $readmemb("register_bank_load.mem",reg_file);
