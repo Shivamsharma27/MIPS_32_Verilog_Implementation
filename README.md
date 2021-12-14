@@ -31,6 +31,17 @@ NOTE:-All the steps to run the code on VIVADO are given in the end.
           
           //reg file to transfer the address to the next stages for the possibilty of branch.
           
+          7.mux_IF_lw_use_hazard
+           
+           //This module inserts stall whenever there is a hazard related to lw signal.
+          
+          8.instruction_kill
+          
+            //If ther is a branch taken then the already fetched signal needs to be killed using this                module.
+            
+            
+            
+          
      
 2. INSTRUCTION DECODE STAGE:- Decode stage is comprised of the following submodules-
 
@@ -74,7 +85,22 @@ NOTE:-All the steps to run the code on VIVADO are given in the end.
                       l.write_data_memory_ID_EX.v
                       m.read_data_memory_ID_EX_stage.v
                       n.write_destination_reg_ID_EX_stage.v
-                      
+                      o.mac_control_ID_EX_stage
+          
+          10.instruction_kill_decode
+            
+            //This modules kill the already fetched instruction in decode stage if the branch is                   taken.
+            
+          11.instruction_buffer(D_EX_instruction)
+          
+            //Bufffer to transfer instruction from D EX stage.
+            
+          
+             
+             
+       
+
+         
 3. EXECUTION_UNIT:- This unit take data and control signals from the previous stage and performs operations accordingly.Following are the files used to implement the funcioning for this stage.
           
           1.mux_A
@@ -83,13 +109,40 @@ NOTE:-All the steps to run the code on VIVADO are given in the end.
           4.destination_reg_address.v
           5.comaparator_to_check_branch.v
           
-          Modules to transfer control form Execution stage to Memory Stage
+          Modules to transfer control from Execution stage to Memory Stage
                    
                    a.ALU_OUT_EX_MEM.v
                    b.read_data_memory_ID_EX_stage.v
                    c.write_destination_reg_ID_EX_stage.v
+                   d.write_data_memory_ID_EX.v
                    
+            
+          6.MAC_unit_EX.v
           
+            //separate mac unit for execution  
+           
+          7. forwarding_logic_unit.v
+          
+            //This unit compares the insructions for hazards and then select the mux lines to
+            
+          8. lw_use_stall_unit.v
+             
+             //This unit detects the load use stall and stall for one cycle for this hazard
+            
+          9. upper_ALU_mux
+          
+            //These muxes used to select signal bypassed for rs1
+            
+          10. lower_ALU_mux
+
+            //These muxes used to select signal bypassed for rs2
+            
+           11.instruction_buffer.v (EX_MEM_instruction)
+           
+             //Buffer to transfer instruction from EX to MEM stage
+             
+            12.
+             
 4.Memory Stage:-
           
           1.data_memory.v
@@ -100,10 +153,18 @@ NOTE:-All the steps to run the code on VIVADO are given in the end.
                     a.write_destination_reg_ID_EX_stage.v
                     b.destination_reg_address.v
                     c.M_WB_stage_data.v
+           
+           4.instruction_buffer.v(MEM_WB_instruction)   
+           5. execution_unit_result_selection
+           
+             //This unit selects the output of ALU or Mac unit depending upon the control signal 
+             mem_mac.
+             
+           
                     
 5.WriteBack Stage:-
 
-     In this stage all the control signal that are transferred from the mem stage are routed towards the register bank to perform write opeation on the register.
+     In this stage all the control signal that are transferred from the mem stage are routed towards      the register bank to perform write opeation on the register.
 
             
 
