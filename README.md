@@ -264,3 +264,4 @@ Step 2:- Add these 3 files in the simulation sources.
  Step 4:- Run the simulation.
                 
 This is a simple 5 stage pipeline implementation of RV32I.
+(Note:- Binary files also provided if you want to load the mem_cont.mem for those binaries --- 1. Stall.txt 2.forwarding.txt 3. forward_stall.txt 4.stall_kill_forward.txt)
