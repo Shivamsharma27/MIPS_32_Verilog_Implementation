@@ -262,10 +262,5 @@ Step 2:- Add these 3 files in the simulation sources.
  Step 3:- Make 'instruction_memory_tb.v' as the top module.
  
  Step 4:- Run the simulation.
-          
-          
-                    
-          
-          
-          
-This is a simple 5 stage pipeline implementation of RV32I and no forwarding and bypassing logic has been implemented yet.
+                
+This is a simple 5 stage pipeline implementation of RV32I.
