@@ -5,7 +5,7 @@ This repository contains all  the modules and test benches related to our work o
 NOTE:-All the steps to run the code on VIVADO are given in the end.
 
 
-1.INSTRUCTION FETCH STAGE:- The following five files together make our fetch unit.
+1.INSTRUCTION FETCH STAGE:- The following files together make our fetch unit.
 
           1.PC_reg_synchronous.v 
           
@@ -37,7 +37,7 @@ NOTE:-All the steps to run the code on VIVADO are given in the end.
           
           8.instruction_kill
           
-            //If ther is a branch taken then the already fetched signal needs to be killed using this                module.
+            //If there is a branch taken then the already fetched signal needs to be killed using this module.
             
             
             
@@ -89,7 +89,7 @@ NOTE:-All the steps to run the code on VIVADO are given in the end.
           
           10.instruction_kill_decode
             
-            //This modules kill the already fetched instruction in decode stage if the branch is                   taken.
+            //This modules kill the already fetched instruction in decode stage if the branch is taken.
             
           11.instruction_buffer(D_EX_instruction)
           
